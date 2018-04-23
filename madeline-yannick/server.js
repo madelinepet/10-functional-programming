@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 // Windows and Linux users: You should have retained the user/password from the pre-work for this course.
 // Your OS may require that your conString is composed of additional information including user and password.
-const conString = 'postgres://postgres:password@localhost:5432/kilovolt';
+const conString = 'postgres://postgres@localhost:5432/kilovolt';
 
 // Mac:
 // const conString = 'postgres://localhost:5432/kilovolt';

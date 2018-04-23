@@ -12,7 +12,7 @@
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
     <script id="author-template" type="text/x-handlebars-template">
-    <article class="clearfix" author="{{author}}" authorUrl="{{authorUrl}}">
+    <article class="clearfix" data-author="{{author}}" article-author-url="{{authorUrl}}">
         <li>{{author}}</li>
         <li>{{authorUrl}}</li>
     </script> 
@@ -54,8 +54,7 @@
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
     <script>
-      console.log(app)
-      app.Article.fetchAll(ArticleView.initAdminPage);
+      app.Article.fetchAll(app.Article.initAdminPage);
     </script>
   </body>
 </html>
