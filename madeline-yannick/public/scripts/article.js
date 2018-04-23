@@ -27,7 +27,7 @@ var app = app || {};
     */
     Article.all = articleData.map(articleObject => new Article(articleObject));
   };
-
+  let reduce = function(sum, a) {return sum + a;}
   Article.fetchAll = callback => {
     $.get('/articles')
       .then(results => {
@@ -37,9 +37,7 @@ var app = app || {};
   };
 
   Article.numWordsAll = () => {
-    return Article.all.map(element => {
-      element.body.split(' ').length;
-    }).reduce(function(sum, a) {return sum + a;});
+    return Article.all.map(element => element.body.split(' ').length).reduce(function(sum, a) {return sum + a;});
   };
 
   Article.allAuthors = () => {
@@ -52,7 +50,12 @@ var app = app || {};
   };
 
   Article.numWordsByAuthor = () => {
-    return Article.allAuthors().map(author => {})
+    return Article.allAuthors().map(author => {
+      return {
+        name: author,
+        words: Article.all.filter(ele => ele.author ===author).map(e => e.body.split(' ').length).reduce(reduce)
+      }
+    })
   };
 
   Article.truncateTable = callback => {
