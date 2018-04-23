@@ -54,7 +54,8 @@
     <script src="scripts/article.js"></script>
     <script src="scripts/articleView.js"></script>
     <script>
-      articleView.initAdminPage();
+      console.log(app)
+      app.Article.fetchAll(ArticleView.initAdminPage);
     </script>
   </body>
 </html>
