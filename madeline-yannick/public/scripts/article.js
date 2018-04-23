@@ -39,11 +39,16 @@ var app = app || {};
   Article.numWordsAll = () => {
     return Article.all.map(element => {
       element.body.split(' ').length;
-    }).reduce(function(sum, a) {sum + a;});
+    }).reduce(function(sum, a) {return sum + a;});
   };
 
   Article.allAuthors = () => {
-    return Article.all.map().reduce();
+    return Article.all.map(element => element.author).reduce((acc, element) => {
+      if(!acc.includes(element)){
+        acc.push(element);
+      }
+      return acc;
+    },[]);
   };
 
   Article.numWordsByAuthor = () => {
